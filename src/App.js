@@ -1,13 +1,23 @@
-import React from 'react';
-import styled from 'styled-components'
+import React, { useEffect, useState  } from 'react';
+import styled from 'styled-components';
+import Character from './components/Character'
+import axios from 'axios'
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
-
+const [ cha, setData ] = useState(null);
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
+useEffect(() => {
+  axios.get('https://swapi.dev/api/people/')
+  .then(res => {
+    console.log(res.data)
+  .catch(err => console.error(err))
+  }, [])
+  
+});
 
   return (
     <div className="App">
@@ -17,3 +27,5 @@ const App = () => {
 }
 
 export default App;
+// think about putting the useEffect on app.js and just using app.js to render the character.
+// for each res.data => create a character div?
