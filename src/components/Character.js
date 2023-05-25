@@ -3,7 +3,7 @@ import React from "react"
 import App from '../App'
 
 const Character = (props) => {
-    console.log(props.data);
+
 
     return (
         <div className="character-wrapper">
@@ -14,6 +14,8 @@ const Character = (props) => {
     )
 
 }
+
+//{data.map((char, idx) => (<Character data={char} key={idx}/>) )}
 
 export default Character
 
